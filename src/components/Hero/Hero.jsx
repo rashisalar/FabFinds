@@ -48,7 +48,7 @@ const Hero = () => {
        items-center dark:bg-gray-950 dark:text-white
        duration-200 ">
          
-        <div className="h-[500px] w-[500px] bg-primary/40
+        <div className="h-[500px] w-[500px] bg-gradient-to-r from-orange-400 to-pink-300
         absolute -top-1/2  rounded-3xl rotate-45
         -z-9 "></div>
 

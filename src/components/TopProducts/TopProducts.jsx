@@ -52,8 +52,8 @@ const TopProducts = () => {
         { ProductsData.map((data)=>(
                 <div
                 data-aos="zoom-in"
-                className="rounded-2xl bg-white dark:bg-gray-800
-                           hover:bg-black/80 dark:hover:bg-orange-700
+                className="rounded-2xl bg-white dark:bg-gray-800 dark:text-white
+                           hover:bg-black/80 dark:hover:bg-orange-900
                            hover:text-white relative shadow-xl
                             duration-200 group max-w[300px] "
  >
@@ -78,7 +78,7 @@ const TopProducts = () => {
                             <h1 className="text-xl font-bold">{data.title}</h1>
                             <p 
                             className=" text-gray-700 group-hover:text-white duration-300
-                                         text-s line-clamp-2"
+                                         text-s line-clamp-2  dark:text-gray-100"
                             >{data.description}</p>
                             <button 
                             className="bg-primary hover:scale-105

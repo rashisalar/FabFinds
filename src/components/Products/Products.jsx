@@ -91,6 +91,13 @@ const Products = () => {
                 </div>
                ))}
             </div>
+            <div>
+             <div className="flex justify-center">
+              <button className="text-center mt-10 cursor-pointer bg-primary text-white py-2 px-5 rounded-full hover:scale-105
+                                    duration-300 drop-shadow-[-9px_9px_10px_rgba(0,0,0,0.5)] font-semibold"
+              > View All Button</button>
+             </div>
+            </div>
         </div>
       </div>
     </div>

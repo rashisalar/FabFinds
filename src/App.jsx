@@ -7,6 +7,8 @@ import "aos/dist/aos.css"
 import TopProducts from './components/TopProducts/TopProducts'
 import Banner from './components/Banner/Banner'
 import Subscribe from './components/Subscribe/Subscribe'
+import FlashSale from './components/FlashSaleTimer/FlashSaleTimer'
+import CategoriesSection from './components/CategoriesSection/CategoriesSection'
 
 const App = () => {
 
@@ -29,6 +31,8 @@ React.useEffect(()=>{
       <TopProducts/>
       <Banner/>
       <Subscribe/>
+      <CategoriesSection/>
+      <FlashSale/>
     </div>
   )
 }
