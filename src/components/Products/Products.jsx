@@ -1,5 +1,5 @@
 import React from 'react';
-import Img1 from "../../assets/women/Women.png";
+import Img1 from "../../assets/women/Women.jpg";
 import Img2 from "../../assets/women/Women2.jpg"; 
 import Img3 from "../../assets/women/Women3.jpg"; 
 import Img4 from "../../assets/women/Women4.jpg";
@@ -11,9 +11,8 @@ const ProductsData=[
         {
             id:1,
             img:Img1,
-            title:"Women Ethnic",
+            title:"Jewellery ",
             rating:5.0,
-            color:"white",
             aoseDelay:"0",
         },
         {
@@ -21,7 +20,6 @@ const ProductsData=[
             img:Img2,
             title:"Women western",
             rating:4.5,
-            color:"Red",
             aoseDelay:"200",
         },
         {
@@ -29,23 +27,20 @@ const ProductsData=[
             img:Img3,
             title:"Goggles",
             rating:4.7,
-            color:"brown",
             aoseDelay:"400",
         },
         {
             id:4,
             img:Img4,
-            title:"Printed T-Shirt",
+            title:"Shirt",
             rating:4.4,
-            color:"Yellow",
             aoseDelay:"600",
         },
         {
             id:5,
             img:Img5,
-            title:"Fashion T-Shirt",
+            title:"Top and Bottom",
             rating:4.5,
-            color:"Pink",
             aoseDelay:"800",
         },
 ];
@@ -57,7 +52,7 @@ const Products = () => {
       <div className="container">
         {/* Headersection */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-            <p data-aos="fade-up" className="text-m  text-orange-700 mb-3">Top Selling Products for you</p>
+            <p data-aos="fade-up" className="text-m  text-orange-700 mb-3 font-semibold">Top Selling Products for you</p>
             <h1 data-aos="fade-up" className="text-4xl font-bold mb-4">Products</h1>
             <p  data-aos="fade-up" className="text-s text-gray-900"> Discover a selection of premium products that cater to your style and needs.each item is crafted to bring a touch of sophistication to your wardrobe.</p>
         </div>
@@ -93,8 +88,8 @@ const Products = () => {
             </div>
             <div>
              <div className="flex justify-center">
-              <button className="text-center mt-10 cursor-pointer bg-primary text-white py-2 px-5 rounded-full hover:scale-105
-                                    duration-300 drop-shadow-[-9px_9px_10px_rgba(0,0,0,0.5)] font-semibold"
+              <button className="text-center mt-10 cursor-pointer bg-gray-800 text-white py-2 px-5 rounded-full hover:scale-105
+                                    duration-300 drop-shadow-[-9px_9px_10px_rgba(0,0,0,0.5)] font-semibold hover:bg-yellow-600"
               > View All Button</button>
              </div>
             </div>

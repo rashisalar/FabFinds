@@ -42,13 +42,13 @@ const CategoriesData = [
 
 const Categories = () => {
   return (
-    <div className="mt-10 mb-12">
+    <div className="mt-10 mb-10">
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p
             data-aos="fade-up"
-            className="text-m text-orange-700 mb-3"
+            className="text-m text-orange-700 mb-3 font-bold"
           >
             Popular Categories
           </p>
@@ -95,14 +95,6 @@ const Categories = () => {
           </div>
 
           {/* View All Button */}
-          <div className="flex justify-center">
-            <button
-              className="text-center mt-10 cursor-pointer bg-primary text-white py-2 px-5 rounded-full hover:scale-105
-                duration-300 drop-shadow-[-9px_9px_10px_rgba(0,0,0,0.5)] font-semibold"
-            >
-              View All Categories
-            </button>
-          </div>
         </div>
       </div>
     </div>

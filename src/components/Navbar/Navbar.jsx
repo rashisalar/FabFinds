@@ -3,39 +3,40 @@ import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
 import Darkmode from "./Darkmode";
+import { Link } from "react-router-dom";
 
 const menuItems = [
-  { id: 1, name: "Home", link: "/#" },
-  { id: 2, name: "Top Rated", link: "/#service" },
-  { id: 3, name: "Kids Wear", link: "/#" },
-  { id: 4, name: "Mens Wear", link: "/#" },
+  { id: 1, name: "Home", link: "/" },
+  { id: 2, name: "About Us", link: "/about-us" },
+  { id: 3, name: "Top Rated", link: "/top-rated" },
+  { id: 4, name: "Kids Wear", link: "/kid-wear" },
   { id: 5, name: "Women Wear", link: "/#" },
-  { id: 6, name: "Electronics", link: "/#" },
+  { id: 6, name: "Electronics", link: "/electronics" },
 ];
 
 const dropdownLinks = [
-  { id: 1, name: "Trending Products", link: "/#" },
-  { id: 2, name: "Best Selling", link: "/#" },
-  { id: 3, name: "Top Rated", link: "/#" },
+  { id: 1, name: "Kids Wear", link: "/kid-wear" },
+  { id: 2, name: "Electronics", link: "/electronics" },
+  { id: 3, name: "Top Rated", link: "/top-rated" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ setOrderPopup, setShowLogin }) =>{
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
-    
-      <div className="bg-primary/40 py-1.5">
+      {/* Top Bar */}
+      <div className="bg-gradient-to-r from-orange-200 to-pink-200 py-1.5">
         <div className="container flex justify-between items-center">
-          
-          <div className="flex-1">
-            <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link to="/" className="font-bold text-2xl sm:text-3xl flex gap-2">
               <img src={Logo} alt="Logo" className="w-10" />
               FabFinds
-            </a>
+            </Link>
           </div>
 
-          
+          {/* Search, Cart, Dark Mode */}
           <div className="flex items-center gap-5">
-    
+            {/* Search Bar */}
             <div className="relative group hidden sm:block">
               <input
                 type="text"
@@ -50,8 +51,9 @@ const Navbar = () => {
               />
             </div>
 
+            {/* Order Button */}
             <button
-              onClick={() => alert("Ordering not available yet")}
+              onClick={() => setOrderPopup(true)}
               className="bg-gradient-to-r from-primary to-secondary transition-all duration-200
                 text-white py-1 px-4 rounded-full flex items-center gap-2 group"
             >
@@ -63,34 +65,44 @@ const Navbar = () => {
 
             <Darkmode />
           </div>
-          <div className="flex-1"></div>
+
+          {/* Sign In Button */}
+          <div>
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-full transition-all duration-200"
+              onClick={() => setShowLogin(true)}
+            >
+              Sign In
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Navigation Menu */}
       <div className="flex justify-center">
         <ul className="sm:flex hidden items-center gap-4">
+          {/* Main Menu Items */}
           {menuItems.map((item) => (
             <li key={item.id}>
-              <a
-                href={item.link}
+              <Link
+                to={item.link}
                 className="inline-block px-4 hover:text-primary duration-200"
               >
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
 
-          
+          {/* Dropdown Menu */}
           <li className="group relative cursor-pointer">
-            <a
-              href="#"
+            <div
               className="flex items-center gap-1 py-2"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Trending Products
+              Categories
               <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
-            </a>
+            </div>
             <div
               className="absolute z-50 hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black shadow-md"
               aria-label="Dropdown Menu"
@@ -101,7 +113,7 @@ const Navbar = () => {
                     key={link.id}
                     className="w-full rounded-md p-2 hover:bg-primary/20"
                   >
-                    <a href={link.link}>{link.name}</a>
+                    <Link to={link.link}>{link.name}</Link>
                   </li>
                 ))}
               </ul>

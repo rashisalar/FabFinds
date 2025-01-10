@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const FlashSales = () => {
+  const navigate = useNavigate();
   const [timeRemaining, setTimeRemaining] = useState({});
   
   // Set the sale start and end time
@@ -60,7 +62,7 @@ const FlashSales = () => {
         <div data-aos="fade-up" className="w-full md:w-1/2 text-white text-center">
           <h2 data-aos="fade-up"  className="text-3xl font-bold mb-4">Huge Discounts On All Items!</h2>
           <p data-aos="fade-up" className="text-lg mb-4">Grab your favorite products at unbeatable prices during our flash sale. Hurry, the clock is ticking!</p>
-          <button className="bg-gray-700 text-white py-2 px-6 rounded-lg text-lg hover:bg-yellow-600 transition duration-300">Shop Now</button>
+          <button onClick={() => navigate('/')} className="bg-gray-700 text-white py-2 px-6 rounded-lg text-lg hover:bg-yellow-600 transition duration-300">Shop Now</button>
         </div>
       </div>
     </div>
