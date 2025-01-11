@@ -4,39 +4,32 @@ import Navbar from '../components/Navbar/Navbar';
 import FlashSales from '../components/FlashSaleTimer/FlashSaleTimer';
 import Subscribe from '../components/Subscribe/Subscribe';
 import Footer from '../components/Footer/Footer';
-
+import home1 from'../assets/HomeAppliances/home1.jpg';
+import home2 from'../assets/HomeAppliances/home2.jpg';
+import home3 from'../assets/HomeAppliances/home3.jpg';
+import home4 from'../assets/HomeAppliances/home4.jpg';
+import home5 from'../assets/HomeAppliances/home5.jpg';
+import home6 from'../assets/HomeAppliances/home6.jpg';
+import home7 from'../assets/HomeAppliances/home7.jpg';
+import home8 from'../assets/HomeAppliances/home8.jpg';
+import home9 from'../assets/HomeAppliances/home9.jpg';
 // Importing product images
-import elec1 from '../assets/Electronics/elec1.png';
-import elec2 from '../assets/Electronics/elec2.png';
-import elec3 from '../assets/Electronics/elec3.png';
-import elec4 from '../assets/Electronics/elec4.png';
-import elec5 from '../assets/Electronics/elec5.png';
-import elec6 from '../assets/Electronics/elec6.png';
-import elec7 from '../assets/Electronics/elec7.png';
-import elec8 from '../assets/Electronics/elec8.png';
-import elec9 from '../assets/Electronics/elec9.png';
-import elec10 from '../assets/Electronics/elec10.png';
-import elec11 from '../assets/Electronics/elec11.png';
-import elec12 from '../assets/Electronics/elec12.png';
+
 import Hero from '../components/Hero/Hero';
 
 const ProductsData = [
-  { id: 1, img: elec1, title: "Smartphones", description: "Latest smartphones with cutting-edge features.", rating: 5 },
-  { id: 2, img: elec2, title: "Smartphones", description: "Latest smartphones with cutting-edge features.", rating: 4 },
-  { id: 3, img: elec3, title: "Smartphones", description: "Latest smartphones with cutting-edge features.", rating: 5 },
-  { id: 4, img: elec4, title: "Headphones", description: "Track your health and stay connected on the go.", rating: 4 },
-  { id: 5, img: elec5, title: "Headphones", description: "Experience next-level gaming with top consoles.", rating: 5 },
-  { id: 6, img: elec6, title: "Headphones", description: "Capture moments with our high-resolution cameras.", rating: 4 },
-  { id: 7, img: elec7, title: "Laptop", description: "Powerful and sleek laptops for work and entertainment.", rating: 4 },
-  { id: 8, img: elec8, title: "Laptop", description: "Powerful and sleek laptops for work and entertainment.", rating: 5 },
-  { id: 9, img: elec9, title: "Laptop", description: "Powerful and sleek laptops for work and entertainment.", rating: 4 },
-  { id: 10, img: elec10, title: "Smart Led TV", description: "Portable tablets for work, study, or entertainment.", rating: 5 },
-  { id: 11, img: elec11, title: "Smart Led TV", description: "Explore the skies with high-tech drones.", rating: 4 },
-  { id: 12, img: elec12, title: "Smart Led TV", description: "Innovative wearables to simplify your daily life.", rating: 5 },
-];
-
-
-const Electronics = ({ setOrderPopup }) => {
+    { id: 1, img: home1, title: "Washing Machine", description: "Efficient and powerful washing machine for spotless clothes.", rating: 4 },
+    { id: 2, img: home2, title: "Refrigerator", description: "Keep your food fresh with this energy-efficient refrigerator.", rating: 5 },
+    { id: 3, img: home3, title: "Microwave Oven", description: "Quick and easy cooking with our high-performance microwave.", rating: 4 },
+    { id: 4, img: home4, title: "Blender", description: "Blend smoothies and soups with ease using this versatile blender.", rating: 5 },
+    { id: 5, img: home5, title: "Air Conditioner", description: "Stay cool and comfortable with our energy-saving air conditioner.", rating: 4 },
+    { id: 6, img: home6, title: "Dishwasher", description: "Save time and effort with this efficient dishwasher for spotless dishes.", rating: 5 },
+    { id: 7, img: home7, title: "Electric Kettle", description: "Boil water in minutes with our fast and safe electric kettle.", rating: 4 },
+    { id: 8, img: home8, title: "Vacuum Cleaner", description: "Keep your home clean and dust-free with this powerful vacuum cleaner.", rating: 4 },
+    { id: 9, img: home9, title: "Coffee Maker", description: "Brew fresh coffee every morning with our sleek and easy-to-use coffee maker.", rating: 5 },
+  ];
+  
+const HomeAppliances = ({ setOrderPopup }) => {
   return (
     <>
       <div>
@@ -48,14 +41,14 @@ const Electronics = ({ setOrderPopup }) => {
       <div className="mt-10 top-products">
         <div className="container">
           <div className="text-center mb-10">
-            <p className="text-m text-orange-700 mb-3 font-semibold" data-aos="fade-up">
-              Trendsetting styles
-            </p>
-            <h1 className="text-4xl font-bold mb-4" data-aos="fade-up">
-              You better watch out!
-            </h1>
+          <p className="text-m text-orange-700 mb-3 font-semibold" data-aos="fade-up">
+            Discover premium picks
+           </p>
+         <h1 className="text-4xl font-bold mb-4" data-aos="fade-up">
+            Home Products
+           </h1>
             <p className="mb-4 text-m text-gray-900" data-aos="fade-up">
-              Explore our carefully curated collection of top-rated products, designed to combine style, comfort, and quality.
+               Browse our exclusive range of home products that redefine comfort and style for your living space.
             </p>
           </div>
            <div className="mb-5"> <FlashSales /></div>
@@ -106,4 +99,4 @@ const Electronics = ({ setOrderPopup }) => {
   );
 };
 
-export default Electronics;
+export default HomeAppliances;

@@ -10,8 +10,9 @@ const menuItems = [
   { id: 2, name: "About Us", link: "/about-us" },
   { id: 3, name: "Top Rated", link: "/top-rated" },
   { id: 4, name: "Kids Wear", link: "/kid-wear" },
-  { id: 5, name: "Women Wear", link: "/#" },
+  { id: 5, name: "Women Wear", link: "/women-wear" },
   { id: 6, name: "Electronics", link: "/electronics" },
+  { id: 7, name: "HomeAppliances ", link: "/home" },
 ];
 
 const dropdownLinks = [
@@ -21,6 +22,7 @@ const dropdownLinks = [
 ];
 
 const Navbar = ({ setOrderPopup, setShowLogin }) =>{
+  
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* Top Bar */}

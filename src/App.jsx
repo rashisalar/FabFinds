@@ -8,6 +8,9 @@ import About from "./Pages/About";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Electronics from "./Pages/Electronics";
+import HomeAppliances from "./Pages/HomeAppliances";
+import WomenWear from "./Pages/WomenWear";
+
 
 const App = () => {
   const [orderPopup, setOrderPopup] = useState(false); 
@@ -46,7 +49,14 @@ const App = () => {
             path="/electronics"
             element={<Electronics setOrderPopup={setOrderPopup} />}
           />
-          
+          <Route
+            path="/home"
+            element={<HomeAppliances setOrderPopup={setOrderPopup} />}
+          />
+          <Route
+            path="/women-wear"
+            element={<WomenWear setOrderPopup={setOrderPopup} />}
+          />
           
         </Routes>
       </Router>
