@@ -1,19 +1,19 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import Toprated from "./Pages/Toprated";
-import Popup from "./components/Popup/Popup"; 
 import KidsWear from "./Pages/KidsWear";
 import About from "./Pages/About";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Electronics from "./Pages/Electronics";
 import HomeAppliances from "./Pages/HomeAppliances";
 import WomenWear from "./Pages/WomenWear";
-
+import Cart from "./components/Popup/Cart";
+import Popup from "./components/Popup/Popup";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
-  const [orderPopup, setOrderPopup] = useState(false); 
+  const [orderPopup, setOrderPopup] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -31,19 +31,19 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<Homepage setOrderPopup={setOrderPopup} />} 
+            element={<Homepage setOrderPopup={setOrderPopup} />}
           />
           <Route
             path="/top-rated"
-            element={<Toprated setOrderPopup={setOrderPopup} />} 
+            element={<Toprated setOrderPopup={setOrderPopup} />}
           />
-           <Route
+          <Route
             path="/kid-wear"
-            element={<KidsWear setOrderPopup={setOrderPopup} />} 
+            element={<KidsWear setOrderPopup={setOrderPopup} />}
           />
-           <Route
+          <Route
             path="/about-us"
-            element={<About setOrderPopup={setOrderPopup} />} 
+            element={<About />} 
           />
           <Route
             path="/electronics"
@@ -57,11 +57,14 @@ const App = () => {
             path="/women-wear"
             element={<WomenWear setOrderPopup={setOrderPopup} />}
           />
-          
+          <Route
+            path="/cart"
+            element={<Cart />}
+          />
         </Routes>
+        {/* Render Popup globally */}
+        <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
       </Router>
-      
-      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </div>
   );
 };
