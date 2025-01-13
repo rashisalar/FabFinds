@@ -1,20 +1,26 @@
 import React from 'react'
-import Jewellery from './Women/Jewellery'
-import Womenwestern from './Women/Womenwestern'
-import Goggles from './Women/Goggles'
-import Shirt from './Women/Shirt'
-import TopandBottom from './Women/TopandBottom'
+import Jewellery from './Jewellery'
+import Hero from '../components/Hero/Hero'
+import FlashSales from '../components/FlashSaleTimer/FlashSaleTimer'
+import Navbar from '../components/Navbar/Navbar'
+import Goggles from './Goggles'
+// import Womenwestern from './Womenwestern'
 
-const WomenWear = () => {
+
+const WomenWear = ({ setOrderPopup }) => {
   return (
     <div>
-      <Jewellery/>
-      <Womenwestern/>
+      <Navbar/>
+      <Hero/>
+      <Jewellery setOrderPopup={setOrderPopup} />
+      <FlashSales/>
       <Goggles/>
-      <Shirt/>
-      <TopandBottom/>
+      <FlashSales/>    
+      {/* <Womenwestern/> */}
     </div>
   )
 }
 
 export default WomenWear
+
+

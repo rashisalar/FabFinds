@@ -7,18 +7,15 @@ import { Link } from "react-router-dom";
 
 const menuItems = [
   { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "About Us", link: "/about-us" },
-  { id: 3, name: "Top Rated", link: "/top-rated" },
-  { id: 4, name: "Kids Wear", link: "/kid-wear" },
-  { id: 5, name: "Women Wear", link: "/women-wear" },
-  { id: 6, name: "Electronics", link: "/electronics" },
-  { id: 7, name: "HomeAppliances ", link: "/home" },
+  { id: 2, name: "Top Rated", link: "/top-rated" },
+  { id: 3, name: "Kids Wear", link: "/kid-wear" },
+  { id: 4, name: "Women Wear", link: "/women-wear" },
+  { id: 5, name: "Electronics", link: "/electronics" },
+  { id: 6, name: "HomeAppliances ", link: "/home" },
 ];
 
 const dropdownLinks = [
-  { id: 1, name: "Kids Wear", link: "/kid-wear" },
-  { id: 2, name: "Electronics", link: "/electronics" },
-  { id: 3, name: "Top Rated", link: "/top-rated" },
+  { id: 1, name: "About Us", link: "/about-us" },
 ];
 
 const Navbar = ({ setOrderPopup, setShowLogin }) =>{
@@ -102,7 +99,7 @@ const Navbar = ({ setOrderPopup, setShowLogin }) =>{
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Categories
+              Get to Know Us
               <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
             </div>
             <div
