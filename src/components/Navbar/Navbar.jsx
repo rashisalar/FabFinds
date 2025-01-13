@@ -3,23 +3,32 @@ import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
 import Darkmode from "./Darkmode";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const menuItems = [
   { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "Top Rated", link: "/top-rated" },
-  { id: 3, name: "Kids Wear", link: "/kid-wear" },
-  { id: 4, name: "Women Wear", link: "/women-wear" },
-  { id: 5, name: "Electronics", link: "/electronics" },
-  { id: 6, name: "HomeAppliances ", link: "/home" },
+  { id: 2, name: "About Us", link: "/about-us" },
+  { id: 3, name: "Top Rated", link: "/top-rated" },
+  { id: 4, name: "Kids Wear", link: "/kid-wear" },
+  { id: 5, name: "Women Wear", link: "/women-wear" },
+  { id: 6, name: "Electronics", link: "/electronics" },
+  { id: 7, name: "HomeAppliances", link: "/home" },
 ];
 
 const dropdownLinks = [
-  { id: 1, name: "About Us", link: "/about-us" },
+  { id: 1, name: "Kids Wear", link: "/kid-wear" },
+  { id: 2, name: "Electronics", link: "/electronics" },
+  { id: 3, name: "Top Rated", link: "/top-rated" },
 ];
 
-const Navbar = ({ setOrderPopup, setShowLogin }) =>{
-  
+const Navbar = ({ setShowLogin }) => {
+  const navigate = useNavigate();  // Use navigate to redirect
+
+  // Function to redirect to /cart when the order button is clicked
+  const handleOrderNowClick = () => {
+    navigate("/cart");  // Redirect to /cart page
+  };
+
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* Top Bar */}
@@ -52,7 +61,7 @@ const Navbar = ({ setOrderPopup, setShowLogin }) =>{
 
             {/* Order Button */}
             <button
-              onClick={() => setOrderPopup(true)}
+              onClick={handleOrderNowClick}  // Trigger redirect on click
               className="bg-gradient-to-r from-primary to-secondary transition-all duration-200
                 text-white py-1 px-4 rounded-full flex items-center gap-2 group"
             >
