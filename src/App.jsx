@@ -11,6 +11,7 @@ import Cart from "./components/Popup/Cart";
 import Popup from "./components/Popup/Popup";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Contact from "./components/Content/ContentUs";
 
 const App = () => {
   const [orderPopup, setOrderPopup] = useState(false);
@@ -50,7 +51,7 @@ const App = () => {
             element={<Electronics setOrderPopup={setOrderPopup} />}
           />
           <Route
-            path="/home"
+            path="/homeAppliances"
             element={<HomeAppliances setOrderPopup={setOrderPopup} />}
           />
           <Route
@@ -60,6 +61,10 @@ const App = () => {
           <Route
             path="/cart"
             element={<Cart />}
+          />
+           <Route
+            path="/contact-us"
+            element={<Contact />} 
           />
         </Routes>
         {/* Render Popup globally */}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import FlashSales from "../components/FlashSaleTimer/FlashSaleTimer";
 import { FaStar } from "react-icons/fa";
-import Hero from "../components/Hero/Hero";
+import HeroToprated from "./HeroToprated";
 import Footer from "../components/Footer/Footer";
 import Subscribe from "../components/Subscribe/Subscribe";
 import Popup from "../components/Popup/Popup";
@@ -36,7 +36,7 @@ const Toprated = () => {
     <>
       <Navbar />
       <div className="mt-5 mb-5">
-        <Hero />
+        <HeroToprated/>
       </div>
 
       <div className="mt-10 top-products">
@@ -84,7 +84,7 @@ const Toprated = () => {
                   <p className="text-gray-700 group-hover:text-white duration-300 text-sm line-clamp-2 dark:text-gray-100">
                     {data.description}
                   </p>
-                  <p className="text-gray-800 font-semibold mt-2">{data.price}</p>
+                  <p className="text-gray-800 font-semibold mt-2">₹{data.price}</p>
                   <button
                     className="bg-primary hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-primary"
                     onClick={() => handleOrderNow(data)} // Show popup with product details

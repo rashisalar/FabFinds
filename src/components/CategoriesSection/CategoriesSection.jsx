@@ -4,7 +4,6 @@ import ClothingImg from "../../assets/categories/Clothing.jpg";
 import HomeAppliancesImg from "../../assets/categories/HomeAppliances.jpg";
 import ToysImg from "../../assets/categories/Toys.jpg";
 
-
 const CategoriesData = [
   {
     id: 1,
@@ -13,6 +12,7 @@ const CategoriesData = [
     description: "Gadgets, devices, and more",
     color: "blue",
     aoseDelay: "0",
+    link: "/electronics", // Link for the category
   },
   {
     id: 2,
@@ -21,6 +21,7 @@ const CategoriesData = [
     description: "Trendy and stylish apparel",
     color: "red",
     aoseDelay: "200",
+    link: "/top-rated", // Link for the category
   },
   {
     id: 3,
@@ -29,6 +30,7 @@ const CategoriesData = [
     description: "Essential tools for your home",
     color: "green",
     aoseDelay: "400",
+    link: "/homeAppliances", // Link for the category
   },
   {
     id: 4,
@@ -37,6 +39,7 @@ const CategoriesData = [
     description: "Fun and games for kids",
     color: "yellow",
     aoseDelay: "600",
+    link: "/kid-wear", // Link for the category
   },
 ];
 
@@ -75,11 +78,12 @@ const Categories = () => {
           >
             {/* Card Section */}
             {CategoriesData.map((data) => (
-              <div
+              <a
+                href={data.link}
+                key={data.id}
+                className="space-y-3 bg-gray-100 rounded-lg p-4 dark:bg-gray-800 dark:text-white hover:bg-black/80 hover:text-white relative shadow-xl duration-200 group max-w[300px] dark:hover:bg-orange-900"
                 data-aos="zoom-in"
                 data-aos-delay={data.aoseDelay}
-                key={data.id}
-                className="space-y-3 bg-gray-100 rounded-lg p-4  dark:bg-gray-800 dark:text-white  hover:bg-black/80  hover:text-white relative shadow-xl duration-200 group max-w[300px]  dark:hover:bg-orange-900"
               >
                 <img
                   src={data.img}
@@ -88,9 +92,11 @@ const Categories = () => {
                 />
                 <div className="text-center">
                   <h3 className="font-semibold text-lg">{data.title}</h3>
-                  <p className="text-sm  text-gray-700 group-hover:text-white duration-300  dark:text-gray-100">{data.description}</p>
+                  <p className="text-sm text-gray-700 group-hover:text-white duration-300 dark:text-gray-100">
+                    {data.description}
+                  </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 

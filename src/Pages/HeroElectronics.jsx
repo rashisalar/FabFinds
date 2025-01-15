@@ -1,36 +1,26 @@
 import React, { useState } from "react";
-import Image1 from "../../assets/hero/women.png";
-import Image2 from "../../assets/hero/shopping.png";
-import Image3 from "../../assets/hero/sale.png";
+import Image1 from "../assets/HeroElectronic/Electronic.png";
+import Image2 from "../assets/HeroElectronic/sale.png";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
 
 const ImageList = [
   {
     id: 1,
     img: Image1,
-    title: "Upto 50% off on all Wear",
+    title: "Upto 60% off on Electronic",
     description:
       "Upgrade your wardrobe with our latest collection! Enjoy up to 50% off on stylish and premium wear. From casual tees to formal attire, find everything you need at unbeatable prices. Don’t miss out—shop now and elevate your style!",
   },
   {
     id: 2,
     img: Image2,
-    title: "Upto 50% off on all Men's Wear",
+    title: "Grab up to 50% off on trendy Electronic",
     description:
-      "Exclusive deals on men's fashion! Grab up to 50% off on trendy outfits, including shirts, trousers, jackets, and more. Refresh your wardrobe with premium styles at pocket-friendly prices. Hurry, offer valid for a limited time!",
-  },
-  {
-    id: 3,
-    img: Image3,
-    title: "Upto 70% off on all Men's Wear",
-    description:
-      "Mega Sale Alert! Get up to 70% off on all men's wear. From casual to formal styles, grab your favorite outfits at unbeatable prices. Don’t miss this chance to upgrade your look—shop now before it’s gone!",
+      "Exclusive deals on Electronic's fashion! including shirts, trousers, jackets, and more. Refresh your wardrobe with premium styles at pocket-friendly prices. Hurry, offer valid for a limited time!",
   },
 ];
 
-const Hero = () => {
-  const navigate = useNavigate();
+const HeroElectronics = () => {
   const settings = {
     dots: false,
     arrows: false,
@@ -89,15 +79,6 @@ const Hero = () => {
                     data-aos-duration="500"
                     data-aos-once="true"
                   >
-                    <button
-                      className="bg-gradient-to-r
-                           from-primary to-secondary hover:scale-105 
-                            duration-200 text-white py-2 px-4 
-                            rounded-full"
-                      onClick={() => navigate("/top-rated")}
-                    >
-                      Order Now
-                    </button>
                   </div>
                 </div>
 
@@ -125,4 +106,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroElectronics;

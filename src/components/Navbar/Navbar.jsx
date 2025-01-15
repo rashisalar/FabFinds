@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
-import { FaCaretDown, FaCartShopping } from "react-icons/fa6";
+import { FaCaretDown, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Darkmode from "./Darkmode";
 import { Link, useNavigate } from "react-router-dom";
 
 const menuItems = [
   { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "About Us", link: "/about-us" },
-  { id: 3, name: "Top Rated", link: "/top-rated" },
-  { id: 4, name: "Kids Wear", link: "/kid-wear" },
-  { id: 5, name: "Women Wear", link: "/women-wear" },
-  { id: 6, name: "Electronics", link: "/electronics" },
-  { id: 7, name: "HomeAppliances", link: "/home" },
+  { id: 2, name: "Top Rated", link: "/top-rated" },
+  { id: 3, name: "Kids Wear", link: "/kid-wear" },
+  { id: 4, name: "Women Wear", link: "/women-wear" },
+  { id: 5, name: "Electronics", link: "/electronics" },
+  { id: 6, name: "Home Appliances", link: "/homeappliances" },
 ];
 
 const dropdownLinks = [
-  { id: 1, name: "Kids Wear", link: "/kid-wear" },
-  { id: 2, name: "Electronics", link: "/electronics" },
-  { id: 3, name: "Top Rated", link: "/top-rated" },
+  { id: 1, name: "About Us", link: "/about-us" },
+  { id: 2, name: "Contact Us", link: "/contact-us" },
 ];
 
 const Navbar = ({ setShowLogin }) => {
-  const navigate = useNavigate();  // Use navigate to redirect
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // Function to redirect to /cart when the order button is clicked
   const handleOrderNowClick = () => {
-    navigate("/cart");  // Redirect to /cart page
+    navigate("/cart");
   };
 
   return (
@@ -50,25 +48,20 @@ const Navbar = ({ setShowLogin }) => {
                 type="text"
                 placeholder="Search"
                 aria-label="Search"
-                className="w-[200px] sm:w-[300px] group-hover:w-[350px] transition-all 
-                  duration-300 rounded-full border border-gray-300 px-4 py-2
-                  focus:outline-none focus:border-primary dark:border-gray-500 dark:bg-gray-800"
+                className="w-[200px] sm:w-[300px] group-hover:w-[350px] transition-all duration-300 rounded-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-primary dark:border-gray-500 dark:bg-gray-800"
               />
-              <IoMdSearch
-                className="text-gray-500 group-hover:text-primary absolute top-1/2 -translate-y-1/2 right-3"
-              />
+              <IoMdSearch className="text-gray-500 group-hover:text-primary absolute top-1/2 -translate-y-1/2 right-3" />
             </div>
 
             {/* Order Button */}
             <button
-              onClick={handleOrderNowClick}  // Trigger redirect on click
-              className="bg-gradient-to-r from-primary to-secondary transition-all duration-200
-                text-white py-1 px-4 rounded-full flex items-center gap-2 group"
+              onClick={handleOrderNowClick}
+              className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-1 px-4 rounded-full flex items-center gap-2 group"
             >
               <span className="group-hover:block hidden transition-all duration-200">
                 Order
               </span>
-              <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
+              <FaShoppingCart className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
 
             <Darkmode />
@@ -83,18 +76,28 @@ const Navbar = ({ setShowLogin }) => {
               Sign In
             </button>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="sm:hidden flex items-center">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-2xl"
+            >
+              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex justify-center">
-        <ul className="sm:flex hidden items-center gap-4">
+      <div className={`sm:flex ${isMobileMenuOpen ? "block" : "hidden"} sm:block flex justify-center`}>
+        <ul className="flex flex-col sm:flex-row items-center gap-4 text-center">
           {/* Main Menu Items */}
           {menuItems.map((item) => (
             <li key={item.id}>
               <Link
                 to={item.link}
-                className="inline-block px-4 hover:text-primary duration-200"
+                className="inline-block px-4 py-2 hover:text-primary duration-200"
               >
                 {item.name}
               </Link>
@@ -108,7 +111,7 @@ const Navbar = ({ setShowLogin }) => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Get to Know Us
+              Who are we
               <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
             </div>
             <div

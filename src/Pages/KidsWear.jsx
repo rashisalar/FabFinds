@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import FlashSales from "../components/FlashSaleTimer/FlashSaleTimer";
 import { FaStar } from "react-icons/fa6";
-import Hero from "../components/Hero/Hero";
+import HeroKidswear from "./HeroKidswear";
 import Footer from "../components/Footer/Footer";
 import Subscribe from "../components/Subscribe/Subscribe";
 import Popup from "../components/Popup/Popup";
@@ -49,7 +49,7 @@ const KidsWear = () => {
     <>
       <Navbar />
       <div className="mt-5 mb-5">
-        <Hero />
+        <HeroKidswear />
       </div>
 
       <div className="mt-10 top-products">

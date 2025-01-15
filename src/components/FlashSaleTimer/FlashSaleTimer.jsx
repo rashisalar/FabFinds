@@ -6,24 +6,35 @@ import "aos/dist/aos.css";
 const FlashSales = () => {
   const navigate = useNavigate();
   const [timeRemaining, setTimeRemaining] = useState({});
-  
-  // Set the sale start and end time
-  const saleStart = new Date("2025-01-10T10:00:00Z");
-  const saleEnd = new Date("2025-01-10T18:00:00Z");
+  const saleDuration = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
 
   useEffect(() => {
     AOS.init();
-    const interval = setInterval(() => {
-      const now = new Date();
-      let diff = saleStart - now;
 
-      if (diff < 0) {
-        diff = saleEnd - now;
+    const calculateNextSaleTimes = () => {
+      const now = new Date();
+      const saleStart = new Date();
+      saleStart.setHours(10, 0, 0, 0); // Sale starts at 10:00 AM
+
+      if (now > saleStart) {
+        saleStart.setDate(saleStart.getDate() + 1); // Move to the next day if current time is past 10:00 AM
       }
 
-      if (diff < 0) {
-        clearInterval(interval);
-        return;
+      const saleEnd = new Date(saleStart.getTime() + saleDuration);
+
+      return { saleStart, saleEnd };
+    };
+
+    let { saleStart, saleEnd } = calculateNextSaleTimes();
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      let diff = saleEnd - now;
+
+      if (diff <= 0) {
+        // Restart the sale
+        ({ saleStart, saleEnd } = calculateNextSaleTimes());
+        diff = saleEnd - now;
       }
 
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -34,7 +45,7 @@ const FlashSales = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [saleStart, saleEnd]);
+  }, []);
 
   return (
     <div className="w-full flex justify-center items-center py-2">
@@ -60,9 +71,14 @@ const FlashSales = () => {
 
         {/* Sale Headline/Description (Right) */}
         <div data-aos="fade-up" className="w-full md:w-1/2 text-white text-center">
-          <h2 data-aos="fade-up"  className="text-3xl font-bold mb-4">Huge Discounts On All Items!</h2>
-          <p data-aos="fade-up" className="text-lg mb-4">Grab your favorite products at unbeatable prices during our flash sale. Hurry, the clock is ticking!</p>
-          <button onClick={() => navigate('/')} className="bg-gray-700 text-white py-2 px-6 rounded-lg text-lg hover:bg-yellow-600 transition duration-300">Shop Now</button>
+          <h2 className="text-3xl font-bold mb-4">Huge Discounts On All Items!</h2>
+          <p className="text-lg mb-4">Grab your favorite products at unbeatable prices during our flash sale. Hurry, the clock is ticking!</p>
+          <button
+            onClick={() => navigate("/")}
+            className="bg-gray-700 text-white py-2 px-6 rounded-lg text-lg hover:bg-yellow-600 transition duration-300"
+          >
+            Shop Now
+          </button>
         </div>
       </div>
     </div>

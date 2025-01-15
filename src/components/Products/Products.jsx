@@ -1,10 +1,11 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Img1 from "../../assets/women/Women.jpg";
 import Img2 from "../../assets/women/Women2.jpg"; 
 import Img3 from "../../assets/women/Women3.jpg"; 
 import Img4 from "../../assets/women/Women4.jpg";
 import Img5 from"../../assets/women/Women5.jpg";
-import { FaStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6"
 
 
 const ProductsData=[
@@ -47,6 +48,7 @@ const ProductsData=[
 
 
 const Products = () => {
+  const navigate = useNavigate();
   return (
     <div className="mt-10 mb-12">
       <div className="container">
@@ -72,7 +74,7 @@ const Products = () => {
                 className="space-y-3">
                     <img
                   src={data.img}
-                  alt={`Image of ${data.title}`}
+                  alt={`Image of ${data.a}`}
                   className="h-[220px] w-[150px] object-cover rounded-md mb-4"
                 />
                 <div>
@@ -90,6 +92,7 @@ const Products = () => {
              <div className="flex justify-center">
               <button className="text-center mt-10 cursor-pointer bg-gray-800 text-white py-2 px-5 rounded-full hover:scale-105
                                     duration-300 drop-shadow-[-9px_9px_10px_rgba(0,0,0,0.5)] font-semibold hover:bg-yellow-600"
+                                    onClick={() => navigate("/women-wear")}
               > View All Button</button>
              </div>
             </div>

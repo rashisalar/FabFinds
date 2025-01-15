@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Img1 from "../../assets/shirt/shirt.png";
 import Img2 from "../../assets/shirt/shirt2.png";
 import Img3 from "../../assets/shirt/shirt3.png";
 import { FaStar } from "react-icons/fa6";
+import Popup from "../Popup/Popup"; // Assuming the Popup component is reusable
 
 const ProductsData = [
   {
@@ -11,24 +12,36 @@ const ProductsData = [
     title: "Casual Wear",
     description:
       "Perfect for everyday comfort, our casual wear combines style and practicality. Ideal for relaxed outings or weekend get-togethers.",
-  },
+      price: 1299,
+    },
   {
     id: 2,
     img: Img2,
     title: "Printed Wear",
     description:
       "Brighten up your wardrobe with our vibrant printed wear, featuring unique designs that make a bold fashion statement.",
-  },
+      price: 2299,
+    },
   {
     id: 3,
     img: Img3,
     title: "Women Shirt",
     description:
       "A versatile women's shirt that pairs well with jeans or skirts. Crafted for a sleek look, it's ideal for both casual and semi-formal occasions.",
-  },
+      price: 3299,
+    },
 ];
 
-const TopProducts = ({ setOrderPopup}) => {
+const TopProducts = () => {
+  const [orderPopup, setOrderPopup] = useState(false); // Manages popup visibility
+  const [selectedProduct, setSelectedProduct] = useState(null); // Manages selected product data
+
+  // Handle "Order Now" button click
+  const handleOrderNow = (product) => {
+    setSelectedProduct(product);
+    setOrderPopup(true);
+  };
+
   return (
     <div className="mt-7 top-products">
       <div className="container">
@@ -89,7 +102,7 @@ const TopProducts = ({ setOrderPopup}) => {
                 <button
                   className="bg-primary hover:scale-105 duration-300 text-white py-1 px-4
                     rounded-full mt-4 group-hover:bg-white group-hover:text-primary"
-                    onClick={ setOrderPopup}
+                  onClick={() => handleOrderNow(data)}
                 >
                   Order Now
                 </button>
@@ -98,6 +111,9 @@ const TopProducts = ({ setOrderPopup}) => {
           ))}
         </div>
       </div>
+
+      {/* Popup Component */}
+      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} product={selectedProduct} />
     </div>
   );
 };
